@@ -28,14 +28,14 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("You don't seem to be referring to a user noob.")
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("Sed I can't seem to find this user")
             return ""
         else:
             raise
@@ -61,13 +61,13 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     try:
         chat.kick_member(user_id)
         bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
-        message.reply_text("Banned!")
+        message.reply_text("Banned No one needs you!")
         return log
 
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('Banned!', quote=False)
+            message.reply_text('Banned No one needs you!', quote=False)
             return log
         else:
             LOGGER.warning(update)
@@ -147,7 +147,7 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
         return log
 
     except BadRequest as excp:
-        if excp.message == "Reply message not found":
+        if excp.message == "Reply message not found sed":
             # Do not reply
             message.reply_text("Banned! User will be banned for {}.".format(time_val), quote=False)
             return log
@@ -263,7 +263,7 @@ def unban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     chat.unban_member(user_id)
-    message.reply_text("Yep, this user can join!")
+    message.reply_text("Yepp, giv permission to this noob to join this group!")
 
     log = "<b>{}:</b>" \
           "\n#UNBANNED" \
