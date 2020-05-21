@@ -36,7 +36,7 @@ def check_flood(bot: Bot, update: Update) -> str:
     try:
         chat.kick_member(user.id)
         msg.reply_text("I like to leave the flooding to natural disasters. But you, you were just a "
-                       "disappointment. Get out.")
+                       "disappointment. Get out you trash.")
 
         return "<b>{}:</b>" \
                "\n#BANNED" \
@@ -45,7 +45,7 @@ def check_flood(bot: Bot, update: Update) -> str:
                                              mention_html(user.id, user.first_name))
 
     except BadRequest:
-        msg.reply_text("I can't kick people here, give me permissions first! Until then, I'll disable antiflood.")
+        msg.reply_text("I can't kick people here, pls give me permissions first! Until then, I'll disable antiflood.")
         sql.set_flood(chat.id, 0)
         return "<b>{}:</b>" \
                "\n#INFO" \
@@ -65,13 +65,13 @@ def set_flood(bot: Bot, update: Update, args: List[str]) -> str:
         val = args[0].lower()
         if val == "off" or val == "no" or val == "0":
             sql.set_flood(chat.id, 0)
-            message.reply_text("Antiflood has been disabled.")
+            message.reply_text("Fuck antiflood has been disabled.")
 
         elif val.isdigit():
             amount = int(val)
             if amount <= 0:
                 sql.set_flood(chat.id, 0)
-                message.reply_text("Antiflood has been disabled.")
+                message.reply_text("Fuck antiflood has been disabled.")
                 return "<b>{}:</b>" \
                        "\n#SETFLOOD" \
                        "\n<b>Admin:</b> {}" \
