@@ -5,3 +5,6 @@ Originally a simple group management bot with multiple admin features, it has ev
 bots aiming to provide simple plugin expansion via a simple drag and drop.
 
 Can be found on telegram as [uNiqueko_bot](https://t.me/uNiqueko_bot).
+### The Easy Way
+
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
